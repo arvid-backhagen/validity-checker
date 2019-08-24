@@ -30,6 +30,9 @@ public class PersonalNumberFormatCheck extends ValidityCheck {
             } catch (DateTimeException dt) {
                 System.out.println("Month must be within 1 and 12 found " + Integer.toString(this.month));
                 this.setValid(false);
+            } catch (StringIndexOutOfBoundsException sioob) {
+                System.out.println("Personal number is too short." + pn);
+                this.setValid(false);
             }
         } else {
             this.setValid(false);

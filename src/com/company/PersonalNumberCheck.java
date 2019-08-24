@@ -34,8 +34,11 @@ public class PersonalNumberCheck extends ValidityCheck{
                 this.setValid(false);
             }
         } catch (NumberFormatException e){
-            System.out.println(e.getMessage());
-            System.out.println("Poorly formatted personal number");
+            System.out.println("Format of personal number is wrong");
+            setValid(false);
+        } catch (StringIndexOutOfBoundsException e) {
+            System.out.println("Personal number is too short." + pn);
+            this.setValid(false);
         }
     }
 

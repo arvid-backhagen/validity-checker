@@ -9,7 +9,7 @@ public class NotEmptyCheck extends ValidityCheck{
     }
     @Override
     public void validate() {
-        this.notEmpty = this.input != "";
+        this.notEmpty = !"".equals(this.input);
         this.setValid(notEmpty);
     }
 

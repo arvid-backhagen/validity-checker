@@ -6,12 +6,13 @@ public class ValidityChecker {
     private ArrayList<ValidityCheck> validations = new ArrayList<ValidityCheck>();
     private boolean valid = true;
     private String input;
+    private int numberOfChecks = 0;
 
     ValidityChecker (String input){
         this.input = input;
     }
     public void addValidityCheck (String checkType) {
-//      checkType could probably be extracted into some constants handler
+        numberOfChecks++;
         if (checkType.equalsIgnoreCase("PERSONALNUMBER")){
             validations.add(new PersonalNumberCheck(this.input));
         } else if( checkType.equalsIgnoreCase("PERSONALNUMBERFORMAT")){
@@ -22,6 +23,7 @@ public class ValidityChecker {
             validations.add(new NotEmptyCheck(this.input));
         } else {
             System.out.println("No type of validation found");
+            numberOfChecks--; // To nullify the call if it was falsely made
         }
     }
 
@@ -34,6 +36,9 @@ public class ValidityChecker {
             }
             System.out.println(validation);
         }
+    }
+    public int getNumberOfChecks () {
+        return numberOfChecks;
     }
     public boolean isValid() {
         this.runValidations();

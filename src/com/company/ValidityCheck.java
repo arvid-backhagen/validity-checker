@@ -6,6 +6,7 @@ public abstract class ValidityCheck {
     public void setValid(boolean valid) {
         this.valid = valid;
     }
+
     public boolean isValid(){
         this.validate();
         return this.valid;

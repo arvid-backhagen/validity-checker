@@ -79,7 +79,7 @@ class Tests {
     @Test
     void testValidityChecker() {
         String[] workingPns = {"19780202-9707", "19551111-6260", "19891005-0866", "19241105-7801", "19820411-2380", };
-        String[] notWorking = {"19780202-9716", "19551111-6250", null, "" };
+        String[] notWorking = {"19780202-9716", "19551111-6250", null, "", "\n" };
 
         for (String pn :  workingPns) {
             ValidityChecker shouldWork = new ValidityChecker(pn);
